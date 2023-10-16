@@ -49,3 +49,8 @@ cd ~/.ssh
 ```
 scp -i "~/.ssh/tech254.pem" ~/.ssh/tech254.pem ubuntu@<Insert public DNS>:~/.ssh
 ```
+
+2. Check if pem file is there
+
+`cd ~/.ssh`
+`ls`
