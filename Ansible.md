@@ -17,23 +17,35 @@ Step 2: SSH into GitBash terminal
 Step 3: Run the following commands
 
 ```
+# update/upgrade packages
 Sudo apt update
 Sudo apt upgrade 
 sudo apt install software-properties-common
 sudo apt-add-repository ppa:ansible/ansible
 sudo apt update -y
+```
+```
+# Install Ansible
 sudo apt install ansible -y
+```
+```
+# Navigating into ansible file
  cd /etc/ansible/
+```
+```
+# Installing tree to see a list of files clearly
 sudo apt install tree -y
-Tree
+tree
+```
+```
+# Navigating into .ssh folder
 cd ~/.ssh
-
 ```
 
-### Copying the pem file 
+### Copying the pem file (SCP method)
 
 1. Open a new GitBash terminal 
 
 ```
-scp -i "~/.ssh/tech254.pem" ~/.ssh/tech254.pem ubuntu@<Insert public DNS of instance>:~/.ssh
+scp -i "~/.ssh/tech254.pem" ~/.ssh/tech254.pem ubuntu@<Insert public DNS>:~/.ssh
 ```
