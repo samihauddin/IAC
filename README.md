@@ -1,5 +1,7 @@
 ![Alt text](Images/image.png)
 
+The diagram above displays a cloud infrastructure set up that uses Ansible for configuration management and orchestration. 
+
 ### What is infrastructure as a code?
 
 Infrastructure as Code (IaC) refers to managing and provisioning computer data centers through machine-readable script files, rather than through physical hardware configuration or interactive configuration tools. 
