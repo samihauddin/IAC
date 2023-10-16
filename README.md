@@ -1,4 +1,4 @@
-![Alt text](image.png)
+![Alt text](Images/image.png)
 
 ### What is infrastructure as a code?
 
