@@ -26,3 +26,4 @@ Configuration management tools help automate these processes, ensuring that syst
 Orchestration refers to the automated arrangement, coordination, and management of computer systems, middleware, and services. 
 
 It involves integrating multiple systems and automating their processes to execute a specific workflow or task.
+
