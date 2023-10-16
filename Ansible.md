@@ -1,4 +1,4 @@
-## Ansible
+### Ansible
 
 ### What is Ansible?
 
@@ -54,3 +54,30 @@ scp -i "~/.ssh/tech254.pem" ~/.ssh/tech254.pem ubuntu@<Insert public DNS>:~/.ssh
 
 `cd ~/.ssh`
 `ls`
+
+### SSH into Target Instance from Ansible Controller 
+
+```
+nano inventory.ini
+
+# inventory.ini
+[my_instance]
+34.245.20.82 ansible_ssh_private_key_file=~/.ssh/tech254.pem ansible_ssh_user=ubuntu
+
+chmod 400 ~/.ssh/tech254.pem
+
+ansible -i inventory.ini my_instance -m ping
+
+nano my_playbook.yml
+
+---
+- name: My Ansible Playbook
+  hosts: my_instance
+  tasks:
+    - name: Echo a message
+      command: echo "Hello, Ansible!"
+
+ansible-playbook -i inventory.ini my_playbook.yml
+
+```
+![Alt text](Images/playbook.png)
