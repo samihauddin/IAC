@@ -6,7 +6,7 @@
 
 - Playbooks allow you to automate tasks, perform configuration management, and deploy applications in a systematic and repeatable way.
 
-### Creating playbooks - Installing Ngnix
+### Connecting with Ansible
 
 Step 1: Checking connection 
 
@@ -21,11 +21,20 @@ ec2-instance ansible_host=52.210.154.251 ansible_user=ubuntu ansible_ssh_private
 
 ```
 
-Step 2: Create a script to install nginx
+Expected output if successful
+
+![Alt text](Images/worked.png)
+
+### Creating playbooks - Installing Ngnix
+
+**Step 1:** Create a script to install nginx
 
 `sudo nano install-nginx.yml`
 
-Step 3: Script
+**Step 2:** Script
+
+- **Indentation in yaml use 2 spaces not tab**
+- Yaml files require `---` at the start to be recognised as a yaml file
 
 ```
 ---
@@ -47,7 +56,7 @@ Step 3: Script
 # ensure nginx is running/enabled
 ```
 
-Step 4: Run the script
+**Step 3**: Run the script
 
 `sudo ansible-playbook install-nginx.yml`
 
