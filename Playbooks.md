@@ -95,10 +95,10 @@ Step 4: Run the script
       msg: "NPM version is {{ npm_version.stdout }}"
 ```
 
-![Alt text](node.png)
+![Alt text](Images/node.png)
 
 **Step 3:** Run the script
 
 `sudo ansible-playbook install-nodejs.yml`
 
-![Alt text](play.png)
+![Alt text](Images/play.png)
