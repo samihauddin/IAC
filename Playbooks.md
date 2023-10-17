@@ -8,7 +8,7 @@
 
 ### Connecting with Ansible
 
-Step 1: Checking connection 
+**Step 1:** Checking connection 
 
 ```
 sudo ansible web -m ping
