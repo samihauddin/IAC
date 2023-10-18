@@ -111,3 +111,38 @@ Expected output if successful
 `sudo ansible-playbook install-nodejs.yml`
 
 ![Alt text](Images/play.png)
+
+### Creating playbooks - Installing MongoDB
+
+**Step 1:** Open text editor
+
+`sudo nano mongo-playbook.yml`
+
+**Step 2:** Enter the script
+
+```
+#this playbook is to set up mongodb in the db ec2
+
+---
+
+#agent node name/ip
+- hosts: db
+
+#gather facts
+  gather_facts: yes
+#provide admin access
+  become: true
+#provide instructions
+  tasks:
+  - name: set up mongodb in instance
+    #shell:
+    apt: pkg=mongodb state=present
+#ensure db is running
+
+```
+
+**Step 3:** Run the script
+
+`sudo ansible-playbook mongo-playbook.yml`
+
+![Alt text](Images/yml.png)
