@@ -148,3 +148,44 @@ Expected output if successful
 Expected outcome
 
 ![Alt text](Images/yml.png)
+
+**Checking the status of MongoDB**
+
+`sudo ansible db -a "sudo systemctl status mongodb"`
+
+### Creating a playbook to configure bind ip
+
+**Step 1:** Open text editor
+
+`sudo nano mongodb-config.yml`
+
+**Step 2:** Enter the script and restart and enable the db after the change
+
+```
+---
+- name: Configure MongoDB to Accept Requests
+  hosts: db
+  become: yes
+  tasks:
+    - name: Set bind IP to accept requests from all IPs
+      lineinfile:
+        path: /etc/mongodb.conf
+        regexp: '^bindIp:'
+        line: 'bindIp: 0.0.0.0'
+
+    - name: Restart MongoDB Service
+      service:
+        name: mongodb
+        state: restarted
+
+    - name: Enable MongoDB Service on Boot
+      service:
+        name: mongodb
+        enabled: yes
+```
+
+**Step 3**: Manually build the environment in the app instance
+
+`export DB_HOST=mongodb://3.253.69.181:27017/posts`
+
+Step 4: 
