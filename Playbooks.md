@@ -145,6 +145,6 @@ Expected output if successful
 
 `sudo ansible-playbook mongo-playbook.yml`
 
-Expected outcome:
+Expected outcome
 
 ![Alt text](Images/yml.png)
