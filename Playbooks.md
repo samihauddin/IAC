@@ -6,24 +6,19 @@
 
 - Playbooks allow you to automate tasks, perform configuration management, and deploy applications in a systematic and repeatable way.
 
-### Connecting with Ansible
+### Deploying a playbook
 
-**Step 1:** Checking connection 
+`sudo ansible-playbook filename.yml`
 
-```
-sudo ansible web -m ping
+### Ad-Hoc commands
 
-sudo nano hosts
+Checking the operating system:
 
-[web]
+`sudo ansible web -a "uname -a`
 
-ec2-instance ansible_host=52.210.154.251 ansible_user=ubuntu ansible_ssh_private_key_file=/home/ubuntu/.ssh/tech254.pem
+Checking the status of a program: 
 
-```
-
-Expected output if successful
-
-![Alt text](Images/worked.png)
+`sudo ansible web -a "sudo systemctl status nginx`
 
 ### Creating playbooks - Installing Ngnix
 
@@ -188,4 +183,4 @@ Expected outcome
 
 `export DB_HOST=mongodb://3.253.69.181:27017/posts`
 
-Step 4: 
+

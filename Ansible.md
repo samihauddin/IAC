@@ -55,29 +55,30 @@ scp -i "~/.ssh/tech254.pem" ~/.ssh/tech254.pem ubuntu@<Insert public DNS>:~/.ssh
 `cd ~/.ssh`
 `ls`
 
-### SSH into Target Instance from Ansible Controller 
+### Configuring Hosts
+
+**Step 1:** Move to the Ansible directory
+
+`cd /etc/ansible`
+
+**Step 2:** Open hosts file
+
+`sudo nano hosts`
+
+**Step 3**: Enter the following in the nano file
+- Change the IP to the public IP address of your instance 
+- Then Save
 
 ```
-nano inventory.ini
+[web]
 
-# inventory.ini
-[my_instance]
-34.245.20.82 ansible_ssh_private_key_file=~/.ssh/tech254.pem ansible_ssh_user=ubuntu
-
-chmod 400 ~/.ssh/tech254.pem
-
-ansible -i inventory.ini my_instance -m ping
-
-nano my_playbook.yml
-
----
-- name: My Ansible Playbook
-  hosts: my_instance
-  tasks:
-    - name: Echo a message
-      command: echo "Hello, Ansible!"
-
-ansible-playbook -i inventory.ini my_playbook.yml
-
+ec2-instance ansible_host=52.210.154.251 ansible_user=ubuntu ansible_ssh_private_key_file=/home/ubuntu/.ssh/tech254.pem
 ```
-![Alt text](Images/playbook.png)
+
+**Step 4**: Ping the web instance:
+
+`sudo ansible web -m ping`
+
+Expected output if successful
+
+![Alt text](Images/worked.png)
