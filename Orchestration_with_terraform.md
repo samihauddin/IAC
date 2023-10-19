@@ -4,9 +4,9 @@
 
 ### What is Orchestration with Terraform?
 
-- Terraform allows you to define and automate the provisioning of infrastructure components e.g. VMs
-- Terraform handles dependencies between infrastructure components, ensuring that resources are provisioned in the correct order to avoid conflicts and errors.
-- Terraform maintains a state file that keeps track of the current state of the deployed infrastructure. 
+- Terraform is an open source tool that allows you to define and manage infrastructure as code. 
+- Terraform simplifies previously manually completed tasks, by allowing you to write a script that describes the infrastructure you need using a straight forward readable language.
+- Once the script is written, Terraform takes care of creating and configuring those resources for you across various cloud providers. 
 
 ### Where can it be used?
 - Cloud Environments
