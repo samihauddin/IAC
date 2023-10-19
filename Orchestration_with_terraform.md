@@ -30,3 +30,9 @@
 2. Initialise Terraform `terraform init`
 3. `terraform plan` to create an execution plan
 4. Apply changes `terraform apply`
+
+### Who is using Terraform?
+- DevOps Engineers 
+- System administrators
+- Cloud engineers
+- Organisations of all sizes use terraform.
