@@ -17,7 +17,7 @@
 ### Why isit used?
 - **Infrastructure as Code**: Terraform enables the principles of IaC, allowing infrastructure to be version-controlled, tested, and treated like software code. This improves collaboration and repeatability.
 - **Scalability**: It allows for easy scaling of infrastructure
-- **Collaboration**: Terraform configurations can be shared and collaborated on within teams
+- **Collaboration**: Terraform configurations can be shared and collaborated on within teams.
 
 ### When isit used?
 - New infrastructure deployment 
