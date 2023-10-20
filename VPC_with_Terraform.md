@@ -1,6 +1,6 @@
 ## VPC with Terraform
 
-![alt text](im1.png)
+![alt text](Images/im1.png)
 
 **Diagram explained:**
 
@@ -135,7 +135,7 @@ resource "aws_security_group" "my_sg" {
 
 **Successful output**
 
-![alt text](im2.png)
+![alt text](Images/im2.png)
 
 Step 3: Delete VPC 
 
