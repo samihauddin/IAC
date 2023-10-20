@@ -137,6 +137,8 @@ resource "aws_security_group" "my_sg" {
 **Successful output**
 
 ![alt text](Images/im2.png)
+![alt text](Images/sub.png)
+![alt text](Images/rt.png)
 
 **Step 3:** Delete VPC 
 
@@ -215,3 +217,20 @@ resource "aws_security_group" "db_sg" {
   }
 }
 ```
+### Creating an EC2 Instance with own VPCs
+```
+resource "aws_instance" "my_ec2" {
+  ami                     = var.web-app_ami_id   #"ami-0943382e114f188e8"
+  instance_type           = var.web-app_type     #"t2.micro"
+  subnet_id               = aws_subnet.public_subnet.id
+  vpc_security_group_ids  = [aws_security_group.app_sg.id]
+
+  tags = {
+    Name = "samiha-terraform-ec2"
+  }
+}
+```
+
+**Successful output**
+
+![alt text](Images/inst.png)
