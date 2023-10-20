@@ -10,7 +10,8 @@
 
 ### Creating a VPC with Terraform
 
-**Step 1:** Configure main.tf file
+**Step 1:** Write Terraform Configuration Files
+- Create a file named main.tf and add the following code to define your VPC configuration:
 
 ```
 
@@ -125,7 +126,7 @@ resource "aws_security_group" "my_sg" {
 }
 
 ```
-**Step 2:** Execute main.tf file
+**Step 2:** Initialize and Apply Terraform Configuration
 
 `terraform init`
 
@@ -137,7 +138,80 @@ resource "aws_security_group" "my_sg" {
 
 ![alt text](Images/im2.png)
 
-Step 3: Delete VPC 
+**Step 3:** Delete VPC 
 
 `terraform destroy`
 
+### Creating Security Groups for app & db
+
+```
+resource "aws_security_group" "app_sg" {
+  vpc_id = aws_vpc.my_vpc.id
+
+  ingress {
+    description = "SSH"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Custom TCP Port 3000"
+    from_port   = 3000
+    to_port     = 3000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "HTTP"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "samiha-terraform-app-sg"
+  }
+}
+
+resource "aws_security_group" "db_sg" {
+  vpc_id = aws_vpc.my_vpc.id
+
+  ingress {
+    description = "SSH"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Custom TCP Port 27017"
+    from_port   = 27017
+    to_port     = 27017
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "samiha-terraform-db-sg"
+  }
+}
+```
